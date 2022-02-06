@@ -1,0 +1,13 @@
+#header-container {
+    width: 100%;
+    height: 15vh;
+    background-size: cover;
+}
+
+#header-title {
+    position: absolute;
+    top: 1%;
+    left: 30%;
+    color: gainsboro;
+    font-size: xx-large;
+}
