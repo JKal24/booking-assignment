@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './routes';
+import store from './app/store';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <Routes />,
+  <Provider store={store}>
+    <Routes />
+  </Provider>,
   document.getElementById('root')
 );
 

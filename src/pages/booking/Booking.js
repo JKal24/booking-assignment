@@ -18,6 +18,7 @@ export default function Booking() {
     const [amOrPm, setAmOrPm] = useState("AM");
     const [duration, setDuration] = useState(0);
 
+    const [time, setTime] = useState("Select a time");
     const [option, setOption] = useState("");
     const [showAlert, setShowAlert] = useState(false);
     const [alertField, setAlertField] = useState("");
@@ -26,6 +27,9 @@ export default function Booking() {
         setHours(hrs);
         setMinutes(mins);
         setAmOrPm(amPm);
+        setTime(
+            minutes === 0 ? hours + ":" + minutes + minutes + " " + amOrPm : hours + ":" + minutes + " " + amOrPm
+        )
     }
 
     function handleTransaction() {
@@ -58,7 +62,7 @@ export default function Booking() {
                 <div className="picker-container">
                     <DatePicker selected={date} onSelect={date => setDate(date)} onChange={date => setDate(date)} placeholderText="Select a date"></DatePicker>
                 </div>
-                <DropdownButton title={minutes === 0 ? hours + ":" + minutes + minutes + " " + amOrPm : hours + ":" + minutes + " " + amOrPm}>
+                <DropdownButton variant="secondary" title={time}>
                     {
                         timeAM.map(hours => {
                             return (allMinutes.map((mins, index) => {
@@ -96,7 +100,7 @@ export default function Booking() {
                     </button>
                 </div>
             </div>
-            <Button variant="secondary" className="booking-button" onClick={handleTransaction}>
+            <Button variant="success" className="booking-button" onClick={handleTransaction}>
                 Submit
             </Button>
             <Alert variant="danger" onClose={closeAlert} dismissible className={showAlert === true ? "booking-button" : "booking-button hide"}>

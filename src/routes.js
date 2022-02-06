@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Booking from './pages/booking/Booking';
 import Header from './pages/components/header/Header';
+import Footer from './pages/components/footer/Footer';
 
 export default function Paths() {
     return (
@@ -11,6 +12,7 @@ export default function Paths() {
             <Routes>
                 <Route exact path="/" element={<Booking/>}></Route>
             </Routes>
+            <Footer />
         </BrowserRouter>
     )
 }
