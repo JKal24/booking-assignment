@@ -6,7 +6,7 @@ export default function Header() {
 
     return (
         <div id="header-container" style={{ backgroundImage: `url(${HeaderBackground})` }}>
-            <div id="header-title"><h2>Booking App</h2></div>
+            <div id="header-title"><h1>Booking App</h1></div>
         </div>
     )
 

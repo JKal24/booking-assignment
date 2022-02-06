@@ -1,0 +1,23 @@
+.footer {
+    position: fixed;
+    background-color: rgb(0, 36, 56);
+    opacity: 0.9;
+    height: 10%;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.footer-links {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.footer-links > a {
+    color: white;
+}
