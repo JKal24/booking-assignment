@@ -10,7 +10,7 @@ export default function Home() {
         <div className="home-contents">
             <h1 className="home-title">The World's Leading Booking Advisor</h1>
             <div className="description">
-                <img src={shakingHands} className="description-image"/>
+                <img src={shakingHands} className="description-image" alt="company-values"/>
                 <ul>
                     <li>
                         <h5>Served over 500,000 clients</h5>

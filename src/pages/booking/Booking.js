@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import { Button, Dropdown, DropdownButton, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 import './Booking.css';
 import estimation from '../../assets/estimation.jpg';
 import consultation from '../../assets/consultation.jpg';
 import implementation from '../../assets/implementation.jpg';
+import { useDispatch } from 'react-redux';
+import { createBooking } from '../../app/reducers/booking';
 
 const timeAM = [7, 8, 9, 10, 11];
 const timePM = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const allMinutes = [0, 15, 30, 45];
 
-export default function Booking() {
+export default function Booking(props) {
     const [date, setDate] = useState(null);
     const [hours, setHours] = useState(7);
     const [minutes, setMinutes] = useState(0);
     const [amOrPm, setAmOrPm] = useState("AM");
-    const [duration, setDuration] = useState(0);
+    const [duration, setDuration] = useState(0.0);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [time, setTime] = useState("Select a time");
     const [option, setOption] = useState("");
@@ -47,7 +53,17 @@ export default function Booking() {
             setShowAlert(true);
         }
 
-        window.location.replace()
+        const day = date.toString().split(" ")[0];
+        let totalFee = 0.0;
+
+        if (day === "Sat" || day === "Sun") {
+            totalFee = 150.0 * duration;
+        } else {
+            totalFee = 100.0 * duration;
+        }
+        
+        dispatch(createBooking({date: date.toString(), fee: totalFee, duration: duration}));
+        navigate("/checkout")
     }
 
     function closeAlert() {
