@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import HeaderBackground from '../../../assets/header-background.png';
 import Logo from '../../../assets/logo.png';
 import './Header.css';
