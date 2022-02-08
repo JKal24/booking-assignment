@@ -1,6 +1,5 @@
-import { Button } from 'react-bootstrap';
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Checkout.css'
 
 export default function Checkout() {
