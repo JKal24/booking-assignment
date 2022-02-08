@@ -1,0 +1,8 @@
+.checkout-container {
+    width: 40%;
+    color: green;
+    text-align: center;
+    margin: 0 auto;
+    border: 0.3em solid green;
+    margin-top: 10%;
+}
