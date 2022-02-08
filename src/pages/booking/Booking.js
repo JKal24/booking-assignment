@@ -7,8 +7,6 @@ import './Booking.css';
 import estimation from '../../assets/estimation.jpg';
 import consultation from '../../assets/consultation.jpg';
 import implementation from '../../assets/implementation.jpg';
-import { useDispatch } from 'react-redux';
-import { createBooking } from '../../app/reducers/booking';
 
 const timeAM = [7, 8, 9, 10, 11];
 const timePM = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -21,7 +19,6 @@ export default function Booking(props) {
     const [amOrPm, setAmOrPm] = useState("AM");
     const [duration, setDuration] = useState(0.0);
 
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [time, setTime] = useState("Select a time");
@@ -61,9 +58,12 @@ export default function Booking(props) {
         } else {
             totalFee = 100.0 * duration;
         }
+
+        totalFee = Math.round(totalFee * 100) / 100;
+
+        const paramsDate = (date.toString()).split(" ").slice(0, 4).join(" ");
         
-        dispatch(createBooking({date: date.toString(), fee: totalFee, duration: duration}));
-        navigate("/checkout")
+        navigate(`/checkout/${paramsDate}/${totalFee}/${duration}`)
     }
 
     function closeAlert() {

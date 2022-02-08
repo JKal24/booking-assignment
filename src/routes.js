@@ -13,7 +13,7 @@ export default function Paths() {
             <Routes>
                 <Route exact path="/" element={<Home/>}></Route>
                 <Route exact path="/booking" element={<Booking/>}></Route>
-                <Route exact path="/checkout" element={<Checkout/>}></Route>
+                <Route exact path="/checkout/:date/:fee/:duration" element={<Checkout/>}></Route>
             </Routes>
             <Footer />
         </BrowserRouter>

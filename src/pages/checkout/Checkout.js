@@ -1,15 +1,17 @@
+import { Button } from 'react-bootstrap';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useParams, Link } from 'react-router-dom';
+import './Checkout.css'
 
 export default function Checkout() {
 
-    const date = useSelector(state => state.booking.date);
-    const fee = useSelector(state => state.booking.fee);
-    const duration = useSelector(state => state.booking.duration);
+    const { date, fee, duration } = useParams();
 
     return (
-        <div>
-            {date} {fee} {duration}
+        <div className="checkout-container">
+            <h2>Congratulations, we've received your booking and hope to see you soon!</h2>
+            <h3>Booking for {date}</h3>
+            <h4>${fee} for {duration} hours</h4>
         </div>
     )
 
