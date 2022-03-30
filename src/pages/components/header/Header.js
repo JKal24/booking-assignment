@@ -14,6 +14,7 @@ export default function Header() {
                     <h1>Booking App</h1>
                 </div>
             </Link>
+            <h2>Edited Component</h2>
         </div>
     )
 
